@@ -45,14 +45,12 @@ print("4------------")
 
 let isRaining = true
 
-if isRaining == true {
+if isRaining {
     print("ქოლგის წაღება არ დამავიწყდეს")
 }
-else if isRaining == false {
+else{
     print("დღეს ქოლგა არ დამჭირდება")
     
-}else{
-    print("Something goes wrong")
 }
 
 //5. შექმენით ორი int ტიპის ცვლადი a & b და მიანიჭეთ სასურველი რიცხვები. If-else-ით შეამოწმეთ თუ a მეტია b-ზე დაბეჭდეთ “a მეტია”,  სხვა შემთხვევაში “b მეტია”

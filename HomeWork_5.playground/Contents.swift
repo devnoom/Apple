@@ -55,24 +55,16 @@ print(filtered)
 // 4. დაწერეთ ფუნქცია , რომელიც პარამეტრად იღებს int-ების მასივს. escape closure-ის მეშვეობით დაბეჭდეთ მოწოდებული მასივის ჯამი 5 წამის შემდეგ.
 // დარწმუნდით რომ closure არის  escaping და გამოიძახეთ ის მას შემდეგ რაც ფუნქცია დაბრუნდება
 
-var eClosureArray = [2,4,4,10]
-func eClosure (eCloArr: [Int], summ: @escaping () -> Void){
-    var answer = 0
-    for eca in eCloArr {
-        answer += eca
+func arrayEsc(cArray: [Int], closure: @escaping ([Int]) -> Int) {
+    var final = 0
+    DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
+        final = closure(cArray)
+        print("პასუხი რომელიც დაიბეჭდა 5 წამის შემდეგ არის  \(final)")
     }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-        print(answer)
-    }
-    
-    
 }
-let summationClosure: () -> Void = {
-    
-    
+arrayEsc(cArray: [2, 3, 5]) { numbers in
+    return numbers.reduce(0, +)
 }
-
-eClosure(eCloArr: eClosureArray, summ: summationClosure)
 
 
 

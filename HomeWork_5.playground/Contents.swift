@@ -118,7 +118,7 @@ print(largets)
 
 let lelaWhatMovementIsThis: [String: Int] = [
 
-    "ღამის “სიჩუმე გაფანტე": 235,
+    "ღამის სიჩუმე გაფანტე": 235,
 
     "ვიხსენებ ყველაფერს თავიდან": 219,
 
@@ -135,8 +135,6 @@ let lelaWhatMovementIsThis: [String: Int] = [
     "ძველი ვერხვები" :193
 ]
 //დაწერეთ ფუნქცია რომელიც გამოითვლის და დაბეჭდავს სიღერების ჯამურ ხანგრძლივობას წუთებში და წამებში
-//დაწერეთ ფუნქცია რომელიც გამოითვლის სიმღერების საშუალო ხანგრძლივობას
-//დაწერეთ ფუნქცია რომელიც შემთხვევითად ამოარჩევს სიმღერას და დაბეჭდავს მის სახელს
 
 func minutes (lela: [String : Int]) -> String {
     var seconds = 0
@@ -154,6 +152,39 @@ func minutes (lela: [String : Int]) -> String {
 print(minutes(lela: lelaWhatMovementIsThis))
 
 //დაწერეთ ფუნქცია რომელიც იპოვის და დაბეჭდავს ყველაზე ხანგრძლივი და ხანმოკლე სიმღერის სახელს.
+                                    // key   // value
+func longAndShortSongs (lelaSongs: [String : Int]) -> Void
+{
+    var shortSong = ""
+    var longSong = ""
+    var songKey = 0
+    for (key , value) in lelaSongs {
+        if value > songKey{
+            songKey = value
+        }
+        if value == songKey {
+            longSong = key
+        }
+    }
+        for (key , value) in lelaSongs {
+            if value < songKey {
+                songKey = value
+            }
+            if songKey == value {
+                shortSong = key
+            }
+        }
+    print("ყველაზე გრძელი სიმღრაა \(longSong) \nყველაზე მოკლე სიმღერაა \(shortSong)")
+    }
+   
+    
 
+longAndShortSongs(lelaSongs: lelaWhatMovementIsThis)
+
+
+//დაწერეთ ფუნქცია რომელიც გამოითვლის სიმღერების საშუალო ხანგრძლივობას
+
+
+//დაწერეთ ფუნქცია რომელიც შემთხვევითად ამოარჩევს სიმღერას და დაბეჭდავს მის სახელს
 
 

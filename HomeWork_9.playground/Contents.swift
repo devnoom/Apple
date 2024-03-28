@@ -7,6 +7,7 @@ enum Gender {
     case female
 }
 
+
 // შექმენით Protocol სახელად SuperBeing. გაუწერეთ მას ფროფერთები - name: String, strength: Int, speed: Int, weakness: String, gender: Gender
 
 protocol SuperBeing {
@@ -121,5 +122,21 @@ let magneto = SuperVillain(name: "Magneto", weakness: "Xavier's persuasion", gen
 let loki = SuperVillain(name: "Loki", weakness: "Inferiority complex", gender: .male, evilScheme: "Conquer Asgard", obsession: "Proving himself worthy", rivalry: "Thor")
 
 
+//
+//დაწერეთ ჯენერიკ ფუნქცია compareSwiftness რომელიც იღებს მხოლოდ ორ პარამეტრს პირველ და მეორე სუპერგმირებს რომლებიც დაქვემდებარებულები იქნებიან SuperBeing პროტოკოლზე, ფუნქცია უნდა აბრუნებდეს სტრინგს
+//
+//ფუნქციის ბადიში შეამოწმეთ speed მნიშვნელობები ორივე სუპერგმირის
+//
+//დააბრუნეთ სტრინგი აღწერით თუ რომელი სუპერგმირია უფრო სწრაფი (გაითვალისწინეთ ისიც თუ სიჩქარეები ერთმანეთის ტოლია)
 
+func compareSwiftness<T: SuperHero, U: SuperVillain>(hero: T, villain: U) -> String {
+    if hero.speed > villain.speed {
+        "\(hero.name) უფრო სწრაფია ვიდრე  \(villain.name)"
+    } else if hero.speed < villain.speed {
+        "\(villain.name) უფრო სწრაფია ვიდრე  \(hero.name)"
+    } else {
+        "\(hero.name) სიჩქარე ტოლია \(villain.name) -ს სიჩქარის "
+    }
+}
 
+print(compareSwiftness(hero: thor, villain: loki))

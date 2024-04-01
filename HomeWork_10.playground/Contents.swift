@@ -31,6 +31,8 @@ class Audi: Car {
     var price: Double
     unowned var subsidiaryCompany: Volkswagen?
     
+    var interiorDesignSetter: ((InteriorDesign) -> Void)?
+    
     init(model: String, year: Int, color: String, horsepower: Int, price: Double, subsidiaryCompany: Volkswagen?) {
         self.model = model
         self.year = year
@@ -55,6 +57,8 @@ class Volkswagen: Car {
     var horsepower: Int
     var price: Double
     weak var holdingCompany: Audi?
+    
+    var engineSelector: ((EngineChoice) -> Void)?
     
     init(model: String, year: Int, color: String, horsepower: Int, price: Double, holdingCompany: Audi?) {
         self.model = model
@@ -147,7 +151,6 @@ let compareByPrice: RaceComparison = { car1, car2 in
 let winnerByHorsepower = race(car1: A4, car2: TT, comparison: compareByHorsepower)
 
 let winnerByPrice = race(car1: A4, car2: TT, comparison: compareByPrice)
-
 
 
 
